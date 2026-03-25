@@ -1,3 +1,10 @@
 node_modules/
 dist/
 .DS_Store
+.netlify/
+generate-reach-pdf.mjs
+reach-pdf.html
+
+# Large video files (>100MB, exceeds GitHub limit)
+# These are deployed via Netlify CLI directly
+public/videos/*.mov
