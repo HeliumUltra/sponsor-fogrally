@@ -421,43 +421,26 @@
   color: var(--fog-red);
 }
 
-.reach-hero-metric {
-  font-weight: 700;
-  font-size: 72px;
-  color: var(--fog-red);
-  letter-spacing: -1px;
-  line-height: 1.1;
-}
-
 .reach-subhead {
   font-weight: 400;
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--fog-text-dim);
-  max-width: 620px;
+  max-width: 560px;
   margin: 16px auto 0;
 }
 
-/* Ring layout */
+/* Ring section — corner callouts + centered ring/funnel */
 .ring-section {
   position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 70px auto 50px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  margin: 50px 0 40px;
 }
-
-.callouts-left, .callouts-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  min-width: 0;
-}
-
-.callouts-left { padding-right: 30px; text-align: right; }
-.callouts-right { padding-left: 30px; }
 
 .ring-callout {
   opacity: 0;
@@ -470,12 +453,23 @@
   transform: translateY(0);
 }
 
+.corner-callout {
+  position: absolute;
+  width: 200px;
+  z-index: 4;
+}
+
+.corner-tl { top: 30px;    left: 0;   text-align: left; }
+.corner-tr { top: 30px;    right: 0;  text-align: right; }
+.corner-bl { bottom: 30px; left: 0;   text-align: left; }
+.corner-br { bottom: 30px; right: 0;  text-align: right; }
+
 .ring-callout-label {
-  font-weight: 500;
-  font-size: 11px;
+  font-weight: 600;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .ring-callout-text {
@@ -567,83 +561,77 @@
 }
 
 .ring-center-text {
-  font-weight: 500;
-  font-size: 9px;
-  letter-spacing: 3px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(201, 168, 76, 0.8);
+  color: var(--fog-gold);
 }
 
-/* Ring metric labels */
-.ring-metric {
+/* Stacked metrics — funnel shape created by typographic hierarchy alone */
+.reach-funnel {
   position: absolute;
-  text-align: center;
-  z-index: 5;
-}
-
-.ring-metric .metric {
-  font-weight: 700;
-  display: block;
-}
-
-.ring-metric .metric-label {
-  font-weight: 400;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  display: block;
-  margin-top: 2px;
-}
-
-.rm-1 {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 22px);
-}
-.rm-1 .metric { font-size: 22px; color: var(--fog-gold); }
-.rm-1 .metric-label { color: rgba(201, 168, 76, 0.8); font-size: 8px; }
-
-.rm-2 {
-  top: 35%;
-  right: 24%;
-}
-.rm-2 .metric { font-size: 24px; color: var(--fog-blue); }
-.rm-2 .metric-label { color: rgba(90, 155, 213, 0.85); }
-
-.rm-3 {
-  bottom: 18%;
-  left: 0%;
-}
-.rm-3 .metric { font-size: 26px; color: var(--fog-teal); }
-.rm-3 .metric-label { color: rgba(61, 184, 140, 0.85); }
-
-.rm-4 {
-  top: -10%;
+  top: -14%;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  height: 56%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 4;
+  background: transparent;
+  padding: 0 0 8px;
 }
-.rm-4 .metric { font-size: 52px; color: var(--fog-red); }
-.rm-4 .metric-label { color: rgba(232, 89, 60, 0.85); font-size: 16px; letter-spacing: 3px; }
 
-/* Summary bar */
-.reach-summary {
+.funnel-metric {
   text-align: center;
-  padding: 20px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
+  padding: 0 8px;
 }
 
-.reach-summary span {
-  font-weight: 400;
-  font-size: 13px;
+.funnel-num {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: block;
+  line-height: 1;
+}
+
+.funnel-name {
+  font-weight: 600;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 6px;
+  line-height: 1.2;
+}
+
+.fm-digital .funnel-num { font-size: 56px; color: var(--fog-red); }
+.fm-digital .funnel-name { font-size: 13px; color: rgba(232, 89, 60, 0.9); }
+
+.fm-inperson .funnel-num { font-size: 36px; color: var(--fog-teal); }
+.fm-inperson .funnel-name { font-size: 11px; color: rgba(61, 184, 140, 0.9); }
+
+.fm-community .funnel-num { font-size: 28px; color: var(--fog-blue); }
+.fm-community .funnel-name { font-size: 10px; color: rgba(90, 155, 213, 0.9); }
+
+.fm-owners .funnel-num { font-size: 22px; color: var(--fog-gold); }
+.fm-owners .funnel-name { font-size: 9px; color: rgba(201, 168, 76, 0.9); }
+
+/* Tagline */
+.reach-tagline {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--fog-text-dim);
 }
 
-.reach-summary strong {
+.reach-tagline strong {
   color: var(--fog-text);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 @keyframes ringPulse {
@@ -1297,39 +1285,50 @@
     grid-template-columns: 1fr;
   }
 
-  /* Ring section responsive */
+  /* Ring section responsive — switch to vertical stacking */
   .ring-section {
-    flex-direction: column;
-    gap: 30px;
+    display: block;
+    min-height: auto;
+    margin: 40px 0 30px;
   }
 
-  .callouts-left, .callouts-right {
-    text-align: left;
-    padding: 0;
-    flex-direction: row;
-    gap: 20px;
+  /* Stack callouts above and below the ring/funnel */
+  .corner-callout {
+    position: static;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left !important;
   }
 
-  .callouts-left { order: 1; }
-  .callouts-right { order: 3; }
+  .corner-tl, .corner-tr { margin-bottom: 24px; }
+  .corner-bl, .corner-br { margin-top: 24px; }
 
   .ring-container {
-    order: 2;
-    width: 300px;
-    height: 300px;
+    margin: 30px auto;
+    width: 320px;
+    height: 320px;
   }
 
-  .ring-4 { width: 300px; height: 300px; }
-  .ring-3 { width: 230px; height: 230px; }
-  .ring-2 { width: 160px; height: 160px; }
-  .ring-1 { width: 90px; height: 90px; }
+  .ring-4 { width: 320px; height: 320px; }
+  .ring-3 { width: 240px; height: 240px; }
+  .ring-2 { width: 170px; height: 170px; }
+  .ring-1 { width: 100px; height: 100px; }
 
-  .rm-2 {
-    top: 28%;
-    right: 2%;
+  .reach-funnel {
+    width: 100%;
+    height: 58%;
+    top: -14%;
   }
 
-  .reach-hero-metric { font-size: 44px; }
+  .fm-digital .funnel-num { font-size: 42px; }
+  .fm-inperson .funnel-num { font-size: 28px; }
+  .fm-community .funnel-num { font-size: 22px; }
+  .fm-owners .funnel-num { font-size: 17px; }
+  .fm-digital .funnel-name { font-size: 11px; }
+  .fm-inperson .funnel-name { font-size: 9px; }
+  .fm-community .funnel-name { font-size: 8px; }
+  .fm-owners .funnel-name { font-size: 7px; }
 
   /* Pillars responsive */
   .pillars {
